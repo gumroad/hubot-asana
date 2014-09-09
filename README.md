@@ -1,35 +1,35 @@
-# Hubot Example
+# Asana for Hubot
 
-An example script package for Hubot
+Add tasks to Asana using Hubot.
 
-[![Build Status](https://travis-ci.org/hubot-scripts/hubot-example.png)](https://travis-ci.org/hubot-scripts/hubot-example)
+## Installation
 
-## Directory Structure
+Add `hubot-asana` to your `package.json` file:
 
-Using the common directory structure for hubot script packages it will be easy
-to manage and allow others to easily contribute to your package.
+    "dependencies": {
+      "hubot": ">= 2.5.1",
+      "hubot-scripts": ">= 2.4.2",
+      "hubot-asana": ">= 0.0.0"
+    }
 
-### script
+Then add "hubot-asana" to your `external-scripts.json` file:
 
-This directory is home to a couple of development scripts; `bootstrap` and `test`
-they're used to bootstrap the development environment and run tests
-respectively.
+    ["hubot-asana"]
 
-### src
+Finally, run `npm install hubot-asana` and you're done!
 
-This directory is home to the actual hubot scripts in the package. Your
-`index.coffee` entry point will load the scripts from this directory.
+### Configuration
 
-### test
+- ASANA_WORKSPACE_ID - Your workspace's ID.
+- ASANA_TEAM_ID - Your team's ID.
+- ASANA_DEFAULT_PROJECT_ID - Your default project's ID.
+- ASANA_DEFAULT_PROJECT_NAME - Your default project's name.
 
-This directory is home to any tests you write for your scripts. This example
-package uses Mocha, Chai and Sinon to manage writing tests.
+### Usage
 
-## Advantages of Building a Package
+A task added to Asana must have a name. Both an assignee and a project are optional. Some examples:
 
-Some of the advantages of building an npm package for your hubot script(s) are:
-
-* You don't need to rely on when hubot-scripts package is released.
-* You can specify dependencies in the `package.json` rather than have users
-  manually specify them
-* You can easily add tests using your favourite frameworks and libraries
+    asana: ship some code
+    asana: ship some code #bugs
+    asana: @travis ship some code
+    asana: @steve ship some code #bugs
